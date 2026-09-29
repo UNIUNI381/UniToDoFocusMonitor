@@ -1,0 +1,88 @@
+/* 全体の色と、読みやすい日本語の文字組みを定義する。 */
+@font-face { font-family: "UniToDo Noto Serif"; src: url("fonts/NotoSerif.ttf") format("truetype"); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root { color-scheme: light; font: 12px/1.6 "Segoe UI", "Yu Gothic UI", Meiryo, sans-serif; color: #292e2c; background: #faf9f6; }
+* { box-sizing: border-box; }
+body { width: 374px; margin: 0; padding: 14px 22px 10px; }
+button, input, select { font: inherit; }
+button, summary, select, input[type="checkbox"] { cursor: pointer; }
+button, select, input[type="number"] { border: 1px solid #d8ddd6; border-radius: 8px; background: #fff; color: #303d36; }
+button { padding: 9px 11px; font-size: 11px; font-weight: 600; transition: background .15s; }
+button:hover { background: #edf2eb; }
+button:disabled { cursor: default; opacity: .45; }
+button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid #237962; outline-offset: 3px; }
+
+/* ブランドと主スイッチをコンパクトに配置する。 */
+.brand-row, .brand { display: flex; align-items: center; }
+.brand-row { justify-content: space-between; margin-bottom: 12px; }
+.brand { gap: 10px; }
+.brand strong { display: block; font-size: 17px; letter-spacing: -.5px; line-height: 1.4; }
+.brand strong span { color: #56725e; font-weight: 500; }
+.brand small { display: block; color: #7b8178; font-size: 10px; }
+.switch { position: relative; display: inline-flex; width: 34px; height: 20px; flex: 0 0 34px; }
+.switch input { position: absolute; width: 100%; height: 100%; margin: 0; opacity: 0; z-index: 1; }
+.switch-track { width: 100%; border-radius: 20px; background: #ced3ca; transition: background .2s; }
+.switch-track::after { content: ""; display: block; width: 14px; height: 14px; margin: 3px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px #0002; transition: transform .2s; }
+.switch input:checked + .switch-track { background: #36725c; }
+.switch input:checked + .switch-track::after { transform: translateX(14px); }
+.switch input:focus-visible + .switch-track { outline: 2px solid #237962; outline-offset: 3px; }
+
+/* 計測値の状態を、穏やかな色と数字で表す。 */
+.timer-panel { --accent: #647263; background: #eff2e9; border: 1px solid #e0e7d9; border-radius: 16px; padding: 12px 18px 10px; }
+.timer-panel[data-kind="watching"], .timer-panel[data-kind="warning"] { --accent: #af5335; background: #fbf0e5; border-color: #eed8c5; }
+.timer-panel[data-kind="calm"] { --accent: #36725c; }
+.timer-panel[data-kind="offline"] { --accent: #977037; background: #f6f1e6; border-color: #e7dcc8; }
+.status { display: flex; align-items: center; gap: 7px; color: var(--accent); font-size: 11px; font-weight: 600; min-height: 18px; }
+.status-dot, .local-dot { background: currentColor; display: inline-block; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.timer-caption { margin-top: 8px; color: #76796d; font-size: 11px; }
+.timer { font: 600 44px/1.25 "UniToDo Noto Serif", "Noto Serif", Georgia, serif; font-variant-numeric: lining-nums tabular-nums; margin: 2px 0 9px; white-space: nowrap; }
+.progress-track { height: 3px; background: #25332413; border-radius: 3px; overflow: hidden; }
+#progress-value { background: var(--accent); height: 100%; width: 0; transition: width .25s linear; }
+.timer-footer { display: flex; justify-content: space-between; margin-top: 8px; color: #777d6f; font-size: 10px; }
+#direction-note { color: var(--accent); }
+.work-row { display: flex; align-items: baseline; gap: 12px; padding-top: 10px; font-size: 11px; }
+.work-row > span { color: #94998e; flex-shrink: 0; }
+.work-row strong { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-weight: 500; }
+.status-detail { color: #858a80; font-size: 10px; margin: 6px 0 9px; min-height: 16px; }
+
+/* 日常操作と詳細設定を分け、ポップアップ内で完結させる。 */
+.quick-controls { border-top: 1px solid #e4e7df; padding-top: 10px; }
+.setting-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; }
+.setting-row strong { display: block; font-weight: 600; font-size: 12px; }
+.setting-row small { display: block; color: #8a8e83; font-size: 10px; margin-top: 2px; }
+.button-row { display: flex; gap: 8px; margin-top: 10px; }
+.button-row > button:first-child { flex: 1; }
+.subtle { background: transparent; }
+.helper { color: #95988f; font-size: 10px; margin: 6px 0 8px; }
+details { border-top: 1px solid #e4e7df; padding-top: 8px; }
+details + details { margin-top: 8px; }
+summary { color: #465447; font-weight: 600; font-size: 11px; }
+summary span { margin-left: 6px; font-size: 10px; font-weight: 400; color: #999d92; }
+form { margin-top: 12px; }
+.field-row { display: flex; align-items: center; justify-content: space-between; margin: 10px 0; font-size: 11px; }
+.number-field { display: inline-flex; align-items: center; gap: 7px; }
+input[type="number"] { width: 77px; padding: 5px 8px; }
+select { padding: 5px 8px; }
+.site-choices { display: flex; gap: 23px; padding: 7px 0 12px; }
+.site-choices label { display: flex; align-items: center; gap: 5px; }
+input[type="checkbox"] { accent-color: #36725c; }
+.save-button { width: 100%; background: #eaf0e6; border-color: #dce5d7; }
+/* サイズ調整とサイト登録を、余分な装飾を加えずに並べる。 */
+.size-slider { display: block; width: 100%; margin: 0 0 14px; accent-color: #36725c; }
+#timer-size-value { font-variant-numeric: tabular-nums; color: #55745e; }
+.custom-sites { padding: 0; margin: 0; list-style: none; }
+.custom-site { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.custom-site span { min-width: 0; flex: 1; overflow-wrap: anywhere; font-size: 11px; }
+.custom-site button { flex-shrink: 0; padding: 4px 8px; font-size: 10px; }
+.site-form { margin: 12px 0 0; }
+.site-form > label { display: block; margin-bottom: 5px; color: #687560; font-size: 10px; }
+.site-input-row { display: flex; gap: 7px; }
+#site-input { width: 0; min-width: 0; flex: 1; border: 1px solid #d8ddd6; border-radius: 8px; padding: 7px 9px; background: white; }
+.feedback { font-size: 10px; color: #477153; margin: 7px 0 0; }
+.feedback:empty { display: none; }
+.feedback[data-error="true"] { color: #b04435; }
+footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; color: #999f92; font-size: 9px; }
+.local-dot { width: 4px; height: 4px; color: #679276; }
+.footer-separator { padding: 0 2px; }
+footer a { color: #748469; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "UniToDo Focus Monitor",
+  "version": "1.2.0",
+  "description": "UniToDoの作業中、X・YouTubeの閲覧が1分続いたらサボり継続時間を表示。離れると減少します。",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage", "alarms", "idle", "scripting"],
+  "optional_host_permissions": ["*://*/*"],
+  "host_permissions": [
+    "http://127.0.0.1/*",
+    "https://*.x.com/*",
+    "https://*.twitter.com/*",
+    "https://*.youtube.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "UniToDo Focus Monitor",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" }
+  },
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "content_scripts": [{
+    "matches": ["https://*.x.com/*", "https://*.twitter.com/*", "https://*.youtube.com/*"],
+    "js": ["core.js", "content.js"],
+    "run_at": "document_idle",
+    "all_frames": false
+  }],
+  "web_accessible_resources": [{
+    "resources": ["fonts/NotoSerif.ttf"],
+    "matches": ["http://*/*", "https://*/*"]
+  }],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src http://127.0.0.1:48120"
+  }
+}
