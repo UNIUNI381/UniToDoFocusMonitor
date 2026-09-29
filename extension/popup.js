@@ -10,7 +10,7 @@ let renderedSitesKey = "";
 const elements = {};
 for (const identifier of [
   "enabled", "timer-panel", "status-label", "timer-value", "progress-value", "threshold-note",
-  "direction-note", "work-title", "status-detail", "bounce-enabled", "exclude-tab", "preview",
+  "direction-note", "work-title", "bounce-enabled", "exclude-tab", "preview",
   "exclusion-note", "threshold-seconds", "recovery-rate", "monitor-social", "monitor-video", "feedback", "settings-form",
   "timer-size", "timer-size-value", "custom-sites", "site-form", "site-input", "add-site",
   "bounce-threshold-seconds", "bounce-note"
@@ -129,7 +129,6 @@ function render() {
   const description = core.describeState(state, settings, timestamp);
   elements["timer-panel"].dataset.kind = description.kind;
   elements["status-label"].textContent = description.label;
-  elements["status-detail"].textContent = description.detail;
   elements["timer-value"].textContent = core.formatDuration(state.balanceMilliseconds);
   // 閾値に対する残高の割合を、最大100%の進捗線へ変換する。
   elements["progress-value"].style.width = `${Math.min(100, state.balanceMilliseconds / (settings.thresholdSeconds * 10))}%`;
@@ -149,7 +148,7 @@ function render() {
   elements["exclude-tab"].textContent = exempt ? "このタブの除外を解除" : "このタブを15分除外";
   elements["exclusion-note"].textContent = exempt
     ? `除外はあと${Math.ceil((state.exemptUntil - timestamp) / 60000)}分。同じタブ内の移動にも適用します。`
-    : "仕事用の閲覧には一時除外を使えます。";
+    : "";
 }
 
 async function refresh() {

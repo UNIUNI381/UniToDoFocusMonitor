@@ -12,7 +12,7 @@
   <header class="brand-row">
     <div class="brand">
       <img src="icons/icon-48.png" width="34" height="34" alt="">
-      <div><strong>UniToDo <span>Focus</span></strong><small>気づいて、仕事に戻る。</small></div>
+      <div><strong>UniToDo <span>Focus</span></strong></div>
     </div>
     <label class="switch" title="モニターのON/OFF">
       <input id="enabled" type="checkbox" aria-label="モニターを有効にする" checked>
@@ -23,29 +23,26 @@
   <main>
     <section class="timer-panel" id="timer-panel" data-kind="muted" aria-label="現在の計測">
       <div class="status"><span class="status-dot"></span><span id="status-label">接続を確認しています</span></div>
-      <div class="timer-caption">サボり継続時間</div>
       <div class="timer" id="timer-value" role="timer" aria-live="off">00:00</div>
       <div class="progress-track"><div id="progress-value"></div></div>
       <div class="timer-footer"><span id="threshold-note">1分で画面に表示</span><span id="direction-note">待機中</span></div>
     </section>
 
     <div class="work-row"><span>作業</span><strong id="work-title">UniToDoの状態を確認中</strong></div>
-    <p id="status-detail" class="status-detail">作業タイマーが動いている間だけ計測します。</p>
-
     <section class="quick-controls" aria-label="表示と仕事用の除外">
       <label class="setting-row" for="bounce-enabled">
-        <div><strong>DVDのように動かす</strong><small id="bounce-note">5分から移動。反射するたびに色が変わります。</small></div>
+        <div><strong>動かして強調</strong><small id="bounce-note">5分から移動。反射するたびに色が変わります。</small></div>
         <span class="switch"><input id="bounce-enabled" type="checkbox" checked><span class="switch-track"></span></span>
       </label>
       <div class="button-row">
         <button id="exclude-tab" type="button" disabled>このタブを15分除外</button>
         <button id="preview" type="button" class="subtle" disabled>表示テスト</button>
       </div>
-      <p class="helper" id="exclusion-note">仕事用の閲覧には一時除外を使えます。</p>
+      <p class="helper" id="exclusion-note"></p>
     </section>
 
     <details id="settings-details" name="focus-settings">
-      <summary>表示・計測の設定 <span>サイズ・開始時間・減少速度</span></summary>
+      <summary>表示・計測の設定</summary>
       <form id="settings-form">
         <label class="field-row" for="timer-size"><span>タイマーのサイズ</span><output id="timer-size-value" for="timer-size">48 px</output></label>
         <input id="timer-size" class="size-slider" type="range" min="16" max="160" step="1" value="48" aria-label="タイマーのサイズ（ピクセル）">
@@ -57,7 +54,7 @@
       </form>
     </details>
     <details id="sites-details" name="focus-settings">
-      <summary>対象サイト <span>サイトの追加・削除</span></summary>
+      <summary>対象サイト</summary>
       <div class="site-choices" role="group" aria-label="標準の対象サイト"><label><input id="monitor-social" type="checkbox" checked>X / Twitter</label><label><input id="monitor-video" type="checkbox" checked>YouTube</label></div>
       <ul id="custom-sites" class="custom-sites" aria-label="追加した対象サイト"></ul>
       <form id="site-form" class="site-form">
