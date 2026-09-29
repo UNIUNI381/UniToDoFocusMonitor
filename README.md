@@ -2,6 +2,14 @@
 
 UniToDoの作業タイマーが動いている間、X / Twitter・YouTube・自分で登録したサイトの閲覧時間を表示するChrome拡張です。UniToDo本体の改修やビルドは不要です。
 
+## ライセンス
+
+本プロジェクトが独自に作成したソース、文書、アイコンは、UniToDo本体と同じMIT Licenseで提供します。
+
+Copyright (c) 2026 uniuni ([https://x.com/lept_on](https://x.com/lept_on))
+
+ライセンス本文は[LICENSE](LICENSE)を確認してください。同梱のNoto SerifにはSIL Open Font License 1.1が適用されます。出典は[フォントの説明](extension/fonts/README.md)、ライセンス全文は[OFL.txt](extension/fonts/OFL.txt)を確認してください。
+
 ## 導入
 
 1. Chromeのアドレス欄へ `chrome://extensions` を入力します。
